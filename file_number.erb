@@ -1,0 +1,38 @@
+<head>
+<style>
+h1 {
+    color: #343434;
+}
+body { 
+    background-color: #F4F4F4;
+}
+.btn-primary {
+    background-color: #3C948B;
+    border-color: #3C948B;
+}
+.form-control {
+    background-color: #F4F4F4;
+    border-color: #921233;
+}
+p {
+    color: #343434;
+}
+
+.btn-primary:hover {
+    background-color: #49BDB1;
+    border-color: #49BDB1;
+}    
+</style>  
+</head>
+
+<h1 class="display-4 py-3 mb-3 border-bottom">
+  Home Process
+</h1>
+
+<form action="<%= url("/file_number") %>">
+  <div class="form-group">
+    <label for="inputNumber"  style="color:#343434">Number of Files Displayed from Your Home Directory</label>
+    <input name = "file_number" type="number" class="form-control" id="inputNumber">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,79 @@
+<head>
+<style>
+h1 {
+    color: #343434;
+}
+body { 
+    background-color: #F4F4F4;
+}
+.btn-primary {
+    background-color: #3C948B;
+    border-color: #3C948B;
+}
+.form-control {
+    background-color: #F4F4F4;
+    border-color: #921233;
+}
+p {
+    color: #343434;
+}
+
+.btn-primary:hover {
+    background-color: #49BDB1;
+    border-color: #49BDB1;
+}    
+th {
+    color: #921233;
+}
+    
+</style>
+</head>
+
+
+
+
+<body>
+<h1 class="display-4 py-3 mb-3 border-bottom">
+  File Information
+ 
+  <span class="float-right">
+  <a href="<%= url("/find_file") %>" class="btn btn-primary">
+      <i class="fas fa-search"></i> Find Another File/User</a>
+  </span>
+<!--<% @url = request.path_info %> -->
+</h1>
+
+
+<table class="table table-sm table-dark" style="font-size: 12px; background-color: #F4F4F4; color:#343434">
+  <thead>
+    <tr>
+      <th scope="col">File Path</th>
+      <th scope="col">File Size</th>
+      <th scope="col">Last Modified</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        
+      <td><% @output.each do |t| %> 
+      <%= t.split("\t")[1] %>
+      <br />
+       <% end %></td>
+     <td><% @output.each do |t| %> 
+      <%= t.split("\t")[0] %>
+      <br />
+       <% end %>
+       
+       <td>
+           <% @modified.each do |x| %>
+           <%= x.split("\n")[0]%>
+           <br />
+           <% end %>
+       </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+

@@ -1,0 +1,122 @@
+<head>
+<style>
+h1 {
+    color: #343434;
+}
+h4 {
+    color: #921233;
+}
+body { 
+    background-color: #F4F4F4;
+}
+.btn-primary {
+    background-color: #3C948B;
+    border-color: #3C948B;
+}
+.form-control {
+    background-color: #F4F4F4;
+    border-color: #921233;
+}
+p {
+    color: #343434;
+}
+
+.btn-info:hover {
+    background-color: #49BDB1;
+    border-color: #49BDB1;
+}   
+
+.progress {
+    background-color:#D8D8D8;
+}
+
+</style>
+</head>
+
+<body>
+<h1 class="display-4 py-3 mb-3 border-bottom">
+    Usage Dashboard
+</h1>
+
+
+ <div class="jumbotron" style="background-color:#D8D8D8">
+  <h2>Welcome <%=@user%>! Here is your dashboard</h2>
+  <p>With this, you will be able to view disk and file usage as well as space left.</p>
+  <p>
+    <a href="<%= url("/find_file") %>" class="btn btn-info" style="color: #F4F4F4">
+        <i class="fas fa-users"></i> Find Different User 
+    </a>
+    </p></div>
+</div>
+
+
+<h4 style="margin-left: 120px; margin-right: 120px;">File Usage</h4>
+<p>
+    <div style="color: #343434; margin-left: 120px; margin-right: 120px;">Using <%=@total_file_usage%> files out of <%=@file_limit%> total</div>
+
+<% if @filecalc > 80 %>
+ <div style="margin-left: 120px; margin-right: 120px;" class="progress">
+    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuenow="<%@filecalc%>" aria-valuemin="0" 
+    aria-valuemax="100" style="width:<%=@filecalc%>%">
+      <%=@filecalc%>%
+    </div>
+  </div>
+  <div class="alert alert-warning alert-dismissible alert-danger" style="margin-left: 120px; margin-right: 120px;" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Warning!</strong> You are reaching your file limit
+</div>
+
+
+  <% else%>
+  <div style="margin-left: 120px; margin-right: 120px;" class="progress">
+    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" aria-valuenow="<%@filecalc%>" aria-valuemin="0" 
+    aria-valuemax="100" style="color: #343434; width:<%=@filecalc%>%">
+      <%=@filecalc%>%
+    </div>
+  </div>
+<% end %>
+</p>
+&nbsp;
+<hr>
+&nbsp;
+
+<h4 style="margin-left: 120px; margin-right: 120px;">Block Usage</h4>
+<div style="color: #343434; margin-left: 120px; margin-right: 120px;">Using <%=@total_block_usage%> bytes out of <%=@block_limit%> total</div>
+
+
+<% if @blckcalc > 80 %>
+ <div style="margin-left: 120px; margin-right: 120px;" class="progress">
+    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuenow="<%@filecalc%>" aria-valuemin="0" 
+    aria-valuemax="100" style="width:<%=@blckcalc%>%">
+      <%=@blckcalc%>%
+    </div>
+  </div>
+  <div class="alert alert-warning alert-dismissible alert-danger" style="margin-left: 120px; margin-right: 120px;" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Warning!</strong> You are reaching your file limit
+</div>
+
+<% else%>
+  <div style="margin-left: 120px; margin-right: 120px;" class="progress">
+    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" aria-valuenow="<%@blckcalc%>" aria-valuemin="0" 
+    aria-valuemax="100" style="color:#343434; width:<%=@blckcalc%>%">
+      <%=@blckcalc%>%
+    </div>
+  </div>
+<% end %>
+
+<p> </p>
+<marquee style="color:#921233">Make sure to delete or compress large files to free up some space!</marquee>
+
+&nbsp;
+<hr>
+&nbsp;
+
+
+
+
+
+
+
+<a style="color: #3C948B; position: fixed; bottom:5px;right:5px;" href="#" title="Click to go to top">Back to Top</a>
+</body>
